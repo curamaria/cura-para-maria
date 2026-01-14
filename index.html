@@ -6,66 +6,7 @@
 <title>Campanha Solidária</title>
 
 <style>
-  .outras-campanhas {
-  background: #f4f4f4;
-  padding: 40px 20px;
-  margin-top: 40px;
-}
-
-.outras-campanhas h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #2e7d32;
-}
-
-.campanhas-grid {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.campanha-card {
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  text-decoration: none;
-  color: #333;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.campanha-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.campanha-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-
-.campanha-card h3 {
-  padding: 15px 15px 5px;
-  font-size: 18px;
-}
-
-.campanha-card p {
-  padding: 0 15px 15px;
-  font-size: 14px;
-}
-
-.campanha-card span {
-  display: block;
-  background: #2e7d32;
-  color: #fff;
-  text-align: center;
-  padding: 12px;
-  font-weight: bold;
-}
-
+/* ================== ESTILOS ================== */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -129,6 +70,7 @@ button {
   background: #eafaf1;
   border: 2px solid #1fa463;
   color: #1fa463;
+  position: relative;
 }
 
 .valor-btn:hover {
@@ -169,10 +111,71 @@ footer {
   padding: 30px 20px;
   font-size: 14px;
   color: #444;
+  position: relative;
 }
 
 footer h3 {
   margin-top: 0;
+}
+
+.outras-campanhas {
+  background: #f4f4f4;
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+
+.outras-campanhas h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2e7d32;
+}
+
+.campanhas-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.campanha-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.campanha-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.campanha-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.campanha-card h3 {
+  padding: 15px 15px 5px;
+  font-size: 18px;
+}
+
+.campanha-card p {
+  padding: 0 15px 15px;
+  font-size: 14px;
+}
+
+.campanha-card span {
+  display: block;
+  background: #2e7d32;
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  font-weight: bold;
 }
 
 /* MODAL */
@@ -210,6 +213,43 @@ footer h3 {
   cursor: pointer;
   color: #1fa463;
 }
+
+/* CODIGO PIX COM BOTAO COPIAR */
+.pix-container {
+  margin-top: 10px;
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.copy-btn {
+  padding: 6px 10px;
+  background: #1fa463;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background: #145a33;
+}
+
+.fale-btn {
+  margin-top: 10px;
+  padding: 12px;
+  width: 100%;
+  background: #1fa463;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
 </style>
 </head>
 
@@ -231,6 +271,11 @@ footer h3 {
       <div class="progress">
         <div class="progress-bar">26%</div>
       </div>
+      
+      <!-- TEXTO EXPLICATIVO SOBRE O APADRINHADOR -->
+      <p style="margin-top:15px; font-size:14px; color:#555;">
+        Cada valor que você contribui conta com um apadrinhador funcional, que disponibiliza os recursos diretamente para o beneficiário, garantindo ajuda mesmo para quem tem pouco ou nenhum acesso ao mundo digital.
+      </p>
     </div>
   </div>
 
@@ -239,12 +284,41 @@ footer h3 {
     <div class="card-content">
       <h2>Escolha um valor para ajudar</h2>
 
-      <button class="valor-btn" onclick="openQR('qrcode5.png')">R$ 5</button>
-      <button class="valor-btn" onclick="openQR('qrcode10.png')">R$ 10</button>
-      <button class="valor-btn" onclick="openQR('qrcode15.png')">R$ 15</button>
-      <button class="valor-btn" onclick="openQR('qrcode20.png')">R$ 20</button>
-      <button class="valor-btn" onclick="openQR('qrcode50.png')">R$ 50</button>
-      <button class="valor-btn" onclick="openQR('qrcode100.png')">R$ 100</button>
+      <button class="valor-btn" onclick="openQR('qrcode5.png','codigo5')">R$ 5</button>
+      <div class="pix-container">
+        <span id="codigo5">PIX: 00020126450014BR.GOV.BCB.PIX0123vakinhasegura@proton.me52040000530398654045.005802BR5922JOSIAS MARINS DO CARMO6011SAO GONCALO62070503***6304EF1E </span>
+        <button class="copy-btn" onclick="copyPix('codigo5')">Copiar</button>
+      </div>
+
+      <button class="valor-btn" onclick="openQR('qrcode10.png','codigo10')">R$ 10</button>
+      <div class="pix-container">
+        <span id="codigo10">PIX: 00020126450014BR.GOV.BCB.PIX0123vakinhasegura@proton.me520400005303986540510.005802BR5922JOSIAS MARINS DO CARMO6011SAO GONCALO62070503***630498A9</span>
+        <button class="copy-btn" onclick="copyPix('codigo10')">Copiar</button>
+      </div>
+
+      <button class="valor-btn" onclick="openQR('qrcode15.png','codigo15')">R$ 15</button>
+      <div class="pix-container">
+        <span id="codigo15">PIX: 00020126450014BR.GOV.BCB.PIX0123vakinhasegura@proton.me520400005303986540515.005802BR5922JOSIAS MARINS DO CARMO6011SAO GONCALO62070503***6304F66B</span>
+        <button class="copy-btn" onclick="copyPix('codigo15')">Copiar</button>
+      </div>
+
+      <button class="valor-btn" onclick="openQR('qrcode20.png','codigo20')">R$ 20</button>
+      <div class="pix-container">
+        <span id="codigo20">PIX: 00020126450014BR.GOV.BCB.PIX0123vakinhasegura@proton.me520400005303986540520.005802BR5922JOSIAS MARINS DO CARMO6011SAO GONCALO62070503***6304A271</span>
+        <button class="copy-btn" onclick="copyPix('codigo20')">Copiar</button>
+      </div>
+
+      <button class="valor-btn" onclick="openQR('qrcode50.png','codigo50')">R$ 50</button>
+      <div class="pix-container">
+        <span id="codigo50">PIX: 00020126450014BR.GOV.BCB.PIX0123vakinhasegura@proton.me520400005303986540550.005802BR5922JOSIAS MARINS DO CARMO6011SAO GONCALO62070503***6304C189</span>
+        <button class="copy-btn" onclick="copyPix('codigo50')">Copiar</button>
+      </div>
+
+      <button class="valor-btn" onclick="openQR('qrcode100.png','codigo100')">R$ 100</button>
+      <div class="pix-container">
+        <span id="codigo100">PIX: 00020126450014BR.GOV.BCB.PIX0123vakinhasegura@proton.me5204000053039865406100.005802BR5922JOSIAS MARINS DO CARMO6011SAO GONCALO62070503***6304E225</span>
+        <button class="copy-btn" onclick="copyPix('codigo100')">Copiar</button>
+      </div>
 
       <button class="ajudar-btn" onclick="openApadrinhador()">Quero ajudar</button>
 
@@ -289,21 +363,9 @@ footer h3 {
 
 </div>
 
-<footer>
-  <h3>Quem somos</h3>
-  <p>
-    Somos um grupo de pessoas que atua desde 2016 ajudando famílias
-    em situação de extrema miséria, levando apoio, dignidade e esperança.
-  </p>
-
-  <p>
-    ✔️ Ação solidária independente<br>
-    ✔️ Transparência total<br>
-    ✔️ Doações via PIX<br>
-    ✔️ Relatos reais
-    <section class="outras-campanhas">
-  <h2>Outras campanhas que você pode ajudar</h2>
-
+<!-- OUTRAS CAMPANHAS -->
+<section class="outras-campanhas">
+  <h2>Ajudar outras campanhas</h2>
   <div class="campanhas-grid">
 
     <a href="#" class="campanha-card">
@@ -330,7 +392,21 @@ footer h3 {
   </div>
 </section>
 
+<footer>
+  <h3>Quem somos</h3>
+  <p>
+    Somos um grupo de pessoas que atua desde 2016 ajudando famílias
+    em situação de extrema miséria, levando apoio, dignidade e esperança.
   </p>
+
+  <p>
+    ✔️ Ação solidária independente<br>
+    ✔️ Transparência total<br>
+    ✔️ Doações via PIX<br>
+    ✔️ Relatos reais
+  </p>
+
+  <button class="fale-btn">Fale Conosco</button>
 </footer>
 
 <!-- MODAIS -->
@@ -346,15 +422,18 @@ footer h3 {
   <div class="modal-content">
     <h3>Apadrinhador</h3>
     <input type="text" placeholder="Digite seu nome">
-    <button class="ajudar-btn" onclick="openQR('qrcode-ajudar.png')">Continuar</button>
+    <button class="ajudar-btn" onclick="confirmApadrinhador()">Continuar</button>
     <div class="close" onclick="closeModal()">Cancelar</div>
   </div>
 </div>
 
 <script>
-function openQR(img) {
+let selectedPix = '';
+
+function openQR(img, codigoId = '') {
   document.getElementById('qrImage').src = img;
   document.getElementById('qrModal').style.display = 'flex';
+  selectedPix = codigoId;
 }
 
 function openApadrinhador() {
@@ -364,9 +443,27 @@ function openApadrinhador() {
 function closeModal() {
   document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
 }
+
+function copyPix(id) {
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    alert('Código PIX copiado!');
+  });
+}
+
+// Abre o QR Code do botão "Continuar" do Apadrinhador
+function confirmApadrinhador() {
+  if(selectedPix) {
+    openQR('qrcode-ajudar.png');
+    closeModal();
+  } else {
+    alert('Selecione um valor primeiro!');
+  }
+}
 </script>
 
 </body>
 </html>
+
 
 
